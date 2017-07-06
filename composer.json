@@ -1,0 +1,22 @@
+{
+    "name": "sigismund/coinpayments",
+    "description": "CoinPayments API client",
+    "type": "library",
+    "license": "GPL v2",
+    "authors": [
+        {
+            "name": "Žiga Drnovšček",
+            "email": "web@sigismund.si"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Sigismund\\CoinPayments\\": "src/"
+        }
+    },
+    "require": {},
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.0@dev"
+    }
+}
