@@ -3,13 +3,18 @@ namespace Sigismund\CoinPayments;
 
 class CoinPaymentsAPI
 {
-    private $private_key = '';
+    private $merchantID = '';
+    private $ipnSecret = '';
+    private $privateKey = '';
     private $public_key = '';
     private $ch = null;
-    
-    public function setup($private_key, $public_key) {
-        $this->private_key = $private_key;
-        $this->public_key = $public_key;
+
+    public function __construct($privateKey, $public_key, $merchantID, $ipnSecret)
+    {
+        $this->ipnSecret = $ipnSecret;
+        $this->merchantID = $merchantID;
+        $this->privateKey = $privateKey;
+        $this->publicKey = $public_key;
         $this->ch = null;
     }
      
@@ -83,13 +88,13 @@ class CoinPaymentsAPI
      * @param auto_confirm If auto_confirm is true, then the withdrawal will be performed without an email confirmation.
      * @param ipn_url Optionally set an IPN handler to receive notices about this transaction. If ipn_url is empty then it will use the default IPN URL in your account.
      */
-    public function createWithdrawal($amount, $currency, $address, $auto_confirm = false, $ipnUrl = '')
+    public function createWithdrawal($amount, $currency, $address, $autoConfirm = false, $ipnUrl = '')
     {
         $req = array(
             'amount' => $amount,
             'currency' => $currency,
             'address' => $address,
-            'auto_confirm' => $auto_confirm ? 1:0,
+            'auto_confirm' => $autoConfirm ? 1:0,
             'ipn_url' => $ipnUrl,
         );
         return $this->apiCall('create_withdrawal', $req);
@@ -102,13 +107,13 @@ class CoinPaymentsAPI
      * @param merchant The merchant ID to send the coins to.
      * @param auto_confirm If auto_confirm is true, then the transfer will be performed without an email confirmation.
      */
-    public function createTransfer($amount, $currency, $merchant, $auto_confirm = false)
+    public function createTransfer($amount, $currency, $merchant, $autoConfirm = false)
     {
         $req = array(
             'amount' => $amount,
             'currency' => $currency,
             'merchant' => $merchant,
-            'auto_confirm' => $auto_confirm ? 1:0,
+            'auto_confirm' => $autoConfirm ? 1:0,
         );
         return $this->apiCall('create_transfer', $req);
     }
@@ -120,20 +125,62 @@ class CoinPaymentsAPI
      * @param pbntag The $PayByName tag to send funds to.
      * @param auto_confirm If auto_confirm is true, then the transfer will be performed without an email confirmation.
      */
-    public function sendToPayByName($amount, $currency, $pbntag, $auto_confirm = false)
+    public function sendToPayByName($amount, $currency, $pbntag, $autoConfirm = false)
     {
         $req = array(
             'amount' => $amount,
             'currency' => $currency,
             'pbntag' => $pbntag,
-            'auto_confirm' => $auto_confirm ? 1:0,
+            'auto_confirm' => $autoConfirm ? 1:0,
         );
         return $this->apiCall('create_transfer', $req);
     }
+
+    /**
+     * Validate the IPN request and payment.
+     *
+     * @param  array  $postData
+     * @param  array  $serverData
+     * @return mixed
+     */
+    public function validate(array $postData, array $serverData)
+    {
+        if (!isset($postData['ipn_mode'], $postData['merchant'], $postData['status'], $postData['status_text'])) {
+            throw new \Exception("Insufficient POST data provided.");
+        }
+        if ($postData['ipn_mode'] == 'httpauth') {
+            if ($serverData['PHP_AUTH_USER'] !== $this->merchantID) {
+                throw new \Exception("Invalid merchant ID provided.");
+            }
     
+            if ($serverData['PHP_AUTH_PW'] !== $this->ipnSecret) {
+                throw new \Exception("Invalid IPN secret provided.");
+            }
+        } elseif ($postData['ipn_mode'] == 'hmac') {
+            $hmac = hash_hmac("sha512", file_get_contents('php://input'), $this->ipnSecret);
+            
+            if ($hmac !== $serverData['HTTP_HMAC']) {
+                throw new \Exception("Invalid HMAC provided.");
+            }
+            if ($postData['merchant'] !== $this->merchantID) {
+                throw new \Exception("Invalid merchant ID provided.");
+            }
+        } else {
+            throw new \Exception("Invalid IPN mode provided.");
+        }
+        $order_status = $postData['status'];
+        $order_status_text = $postData['status_text'];
+        if ($order_status < 0) {
+            throw new \Exception("{$order_status}: {$order_status_text}");
+        } elseif ($order_status >= 0 && $order_status < 100 && $order_status != 2) {
+            return false;
+        }
+        return true; // If $order_status is >100 or is 2, return true
+    }
+
     private function isSetup()
     {
-        return (!empty($this->private_key) && !empty($this->public_key));
+        return (!empty($this->privateKey) && !empty($this->publicKey));
     }
     
     private function apiCall($cmd, $req = array())
@@ -145,14 +192,14 @@ class CoinPaymentsAPI
         // Set the API command and required fields
         $req['version'] = 1;
         $req['cmd'] = $cmd;
-        $req['key'] = $this->public_key;
+        $req['key'] = $this->publicKey;
         $req['format'] = 'json'; //supported values are json and xml
         
         // Generate the query string
-        $post_data = http_build_query($req, '', '&');
+        $postData = http_build_query($req, '', '&');
         
         // Calculate the HMAC signature on the POST data
-        $hmac = hash_hmac('sha512', $post_data, $this->private_key);
+        $hmac = hash_hmac('sha512', $postData, $this->privateKey);
         
         // Create cURL handle and initialize (if needed)
         if ($this->ch === null) {
@@ -162,7 +209,7 @@ class CoinPaymentsAPI
             curl_setopt($this->ch, CURLOPT_SSL_VERIFYPEER, 0);
         }
         curl_setopt($this->ch, CURLOPT_HTTPHEADER, array('HMAC: '.$hmac));
-        curl_setopt($this->ch, CURLOPT_POSTFIELDS, $post_data);
+        curl_setopt($this->ch, CURLOPT_POSTFIELDS, $postData);
         
         $data = curl_exec($this->ch);
         if ($data !== false) {
