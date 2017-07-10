@@ -17,7 +17,7 @@ class CoinPaymentsAPI
         $this->publicKey = $public_key;
         $this->ch = null;
     }
-     
+
     /**
      * Gets the current CoinPayments.net exchange rate. Output includes both crypto and fiat currencies.
      * @param short If short == true (the default), the output won't include the currency names and confirms needed to save bandwidth.
@@ -36,7 +36,7 @@ class CoinPaymentsAPI
     {
         return $this->apiCall('balances', array('all' => $all ? 1:0));
     }
-    
+
     /**
      * Creates a basic transaction with minimal parameters.<br />
      * See CreateTransaction for more advanced features.
@@ -152,13 +152,13 @@ class CoinPaymentsAPI
             if ($serverData['PHP_AUTH_USER'] !== $this->merchantID) {
                 throw new \Exception("Invalid merchant ID provided.");
             }
-    
+
             if ($serverData['PHP_AUTH_PW'] !== $this->ipnSecret) {
                 throw new \Exception("Invalid IPN secret provided.");
             }
         } elseif ($postData['ipn_mode'] == 'hmac') {
             $hmac = hash_hmac("sha512", file_get_contents('php://input'), $this->ipnSecret);
-            
+
             if ($hmac !== $serverData['HTTP_HMAC']) {
                 throw new \Exception("Invalid HMAC provided.");
             }
@@ -182,25 +182,25 @@ class CoinPaymentsAPI
     {
         return (!empty($this->privateKey) && !empty($this->publicKey));
     }
-    
+
     private function apiCall($cmd, $req = array())
     {
         if (!$this->isSetup()) {
             return array('error' => 'You have not called the Setup function with your private and public keys!');
         }
-        
+
         // Set the API command and required fields
         $req['version'] = 1;
         $req['cmd'] = $cmd;
         $req['key'] = $this->publicKey;
         $req['format'] = 'json'; //supported values are json and xml
-        
+
         // Generate the query string
         $postData = http_build_query($req, '', '&');
-        
+
         // Calculate the HMAC signature on the POST data
         $hmac = hash_hmac('sha512', $postData, $this->privateKey);
-        
+
         // Create cURL handle and initialize (if needed)
         if ($this->ch === null) {
             $this->ch = curl_init('https://www.coinpayments.net/api.php');
@@ -210,7 +210,7 @@ class CoinPaymentsAPI
         }
         curl_setopt($this->ch, CURLOPT_HTTPHEADER, array('HMAC: '.$hmac));
         curl_setopt($this->ch, CURLOPT_POSTFIELDS, $postData);
-        
+
         $data = curl_exec($this->ch);
         if ($data !== false) {
             if (PHP_INT_SIZE < 8 && version_compare(PHP_VERSION, '5.4.0') >= 0) {
