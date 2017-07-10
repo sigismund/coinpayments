@@ -22,10 +22,11 @@ class CoinPaymentsAPI
      * Gets the current CoinPayments.net exchange rate. Output includes both crypto and fiat currencies.
      * @param short If short == true (the default), the output won't include the currency names and confirms needed to save bandwidth.
      */
-    public function getRates($short = true)
+    public function getRates($short = true, $accepted = true)
     {
         $short = $short ? 1:0;
-        return $this->apiCall('rates', array('short' => $short));
+        $accepted = $accepted ? 1:0;
+        return $this->apiCall('rates', [(int) 'short' => $short, (int) 'accepted' => $accepted]); 
     }
 
     /**
