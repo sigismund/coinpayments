@@ -19,11 +19,14 @@ class IpnValidation
     }
 
     /**
+     * Checks $_POST data for required statuses
+     * https://www.coinpayments.net/merchant-tools-ipn
+     *
      * @throws \Sigismund\CoinPayments\Exceptions\ValidationException
      */
     public function checkRequiredData()
     {
-        $requiredKeys = ['ipn_mode', 'merchant', 'status', 'status_text'];
+        $requiredKeys = ['ipn_mode', 'merchant', 'status', 'status_text', 'ipn_id'];
 
         foreach ($requiredKeys as $requiredKey) {
             if ($this->getPostData($requiredKey) === null) {
@@ -108,5 +111,27 @@ class IpnValidation
         return $this->serverData;
     }
 
+    /**
+     * @param array $postData
+     */
+    public function setPostData(array $postData): void
+    {
+        $this->postData = $postData;
+    }
 
+    /**
+     * @param array $serverData
+     */
+    public function setServerData(array $serverData): void
+    {
+        $this->serverData = $serverData;
+    }
+
+    /**
+     * @param \Sigismund\CoinPayments\Credentials $credentials
+     */
+    public function setCredentials(\Sigismund\CoinPayments\Credentials $credentials): void
+    {
+        $this->credentials = $credentials;
+    }
 }

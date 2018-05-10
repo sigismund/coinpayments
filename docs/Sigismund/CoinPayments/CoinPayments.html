@@ -79,7 +79,7 @@
     </div>
 
     <p>    class
-    <strong>CoinPayments</strong>
+    <strong>CoinPayments</strong>        (<a href="https://github.com/sigismund/coinpayments/blob/master/src/CoinPayments.php">View source</a>)
 </p>
 
         
@@ -136,16 +136,6 @@
                     <a href="../../Sigismund/CoinPayments/ApiCall.html"><abbr title="Sigismund\CoinPayments\ApiCall">ApiCall</abbr></a>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_getRates">getRates</a>(bool $short = true, bool $accepted = true)
-        
-                                            <p>Get current exchange rates</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    <a href="../../Sigismund/CoinPayments/ApiCall.html"><abbr title="Sigismund\CoinPayments\ApiCall">ApiCall</abbr></a>
-                </div>
-                <div class="col-md-8 type">
                     <a href="#method_apiCall">apiCall</a>(string $command, array $parameters)
         
                                             <p class="no-description">No description</p>
@@ -154,46 +144,12 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    <a href="../../Sigismund/CoinPayments/Credentials.html"><abbr title="Sigismund\CoinPayments\Credentials">Credentials</abbr></a>
+                    <a href="../../Sigismund/CoinPayments/ApiCall.html"><abbr title="Sigismund\CoinPayments\ApiCall">ApiCall</abbr></a>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_getCredentials">getCredentials</a>()
+                    <a href="#method_getRates">getRates</a>(bool $short = true, bool $accepted = true)
         
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_setCredentials">setCredentials</a>(string $merchantID, string $publicKey, string $privateKey, string $ipnSecret)
-        
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    mixed
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_getRequestAgent">getRequestAgent</a>()
-        
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_setRequestAgent">setRequestAgent</a>(mixed $requestAgent)
-        
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Get current exchange rates</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -235,28 +191,6 @@ in your wallet. There is no fee for these deposits but they don't send IPNs.</p>
                     <a href="#method_createTransaction">createTransaction</a>(float $amount, string $currencyIn, string $currencyOut, array $additional = [])
         
                                             <p>Create a transaction</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    mixed
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_getIpnUrl">getIpnUrl</a>()
-        
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_setIpnUrl">setIpnUrl</a>(mixed $ipnUrl)
-        
-                                            <p class="no-description">No description</p>
-                                    </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -320,6 +254,83 @@ in your wallet. There is no fee for these deposits but they don't send IPNs.</p>
                                             <p>Creates a transfer from your account to a specified merchant.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Sigismund/CoinPayments/ApiCall.html"><abbr title="Sigismund\CoinPayments\ApiCall">ApiCall</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_queryAPI">queryAPI</a>(string $command, array $parameters)
+        
+                                            <p>Makes a query to API
+Not recommended</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Sigismund/CoinPayments/Credentials.html"><abbr title="Sigismund\CoinPayments\Credentials">Credentials</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getCredentials">getCredentials</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getIpnUrl">getIpnUrl</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_setIpnUrl">setIpnUrl</a>(mixed $ipnUrl)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_setCredentials">setCredentials</a>(string $merchantID, string $publicKey, string $privateKey, string $ipnSecret)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getRequestAgent">getRequestAgent</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_setRequestAgent">setRequestAgent</a>(mixed $requestAgent)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
             </div>
 
 
@@ -328,7 +339,7 @@ in your wallet. There is no fee for these deposits but they don't send IPNs.</p>
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at         line 39</div>
+        <div class="location">at         <a href="https://github.com/sigismund/coinpayments/blob/master/src/CoinPayments.php#L38">line 38</a></div>
         <code>                    
     <strong>__construct</strong>(string $merchantID, string $publicKey, string $privateKey, string $ipnSecret)
         </code>
@@ -373,8 +384,60 @@ in your wallet. There is no fee for these deposits but they don't send IPNs.</p>
 
             </div>
                     <div class="method-item">
+                    <h3 id="method_apiCall">
+        <div class="location">at         <a href="https://github.com/sigismund/coinpayments/blob/master/src/CoinPayments.php#L50">line 50</a></div>
+        <code>            protected        <a href="../../Sigismund/CoinPayments/ApiCall.html"><abbr title="Sigismund\CoinPayments\ApiCall">ApiCall</abbr></a>
+    <strong>apiCall</strong>(string $command, array $parameters)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$command</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$parameters</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Sigismund/CoinPayments/ApiCall.html"><abbr title="Sigismund\CoinPayments\ApiCall">ApiCall</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../Sigismund/CoinPayments/Exceptions/RequestException.html"><abbr title="Sigismund\CoinPayments\Exceptions\RequestException">RequestException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
                     <h3 id="method_getRates">
-        <div class="location">at         line 54</div>
+        <div class="location">at         <a href="https://github.com/sigismund/coinpayments/blob/master/src/CoinPayments.php#L68">line 68</a></div>
         <code>                    <a href="../../Sigismund/CoinPayments/ApiCall.html"><abbr title="Sigismund\CoinPayments\ApiCall">ApiCall</abbr></a>
     <strong>getRates</strong>(bool $short = true, bool $accepted = true)
         </code>
@@ -427,189 +490,8 @@ in your wallet. There is no fee for these deposits but they don't send IPNs.</p>
 
             </div>
                     <div class="method-item">
-                    <h3 id="method_apiCall">
-        <div class="location">at         line 66</div>
-        <code>            protected        <a href="../../Sigismund/CoinPayments/ApiCall.html"><abbr title="Sigismund\CoinPayments\ApiCall">ApiCall</abbr></a>
-    <strong>apiCall</strong>(string $command, array $parameters)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>string</td>
-                <td>$command</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td>array</td>
-                <td>$parameters</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td><a href="../../Sigismund/CoinPayments/ApiCall.html"><abbr title="Sigismund\CoinPayments\ApiCall">ApiCall</abbr></a></td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-                            <h4>Exceptions</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td><a href="../../Sigismund/CoinPayments/Exceptions/RequestException.html"><abbr title="Sigismund\CoinPayments\Exceptions\RequestException">RequestException</abbr></a></td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_getCredentials">
-        <div class="location">at         line 78</div>
-        <code>                    <a href="../../Sigismund/CoinPayments/Credentials.html"><abbr title="Sigismund\CoinPayments\Credentials">Credentials</abbr></a>
-    <strong>getCredentials</strong>()
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                <div class="tags">
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td><a href="../../Sigismund/CoinPayments/Credentials.html"><abbr title="Sigismund\CoinPayments\Credentials">Credentials</abbr></a></td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_setCredentials">
-        <div class="location">at         line 89</div>
-        <code>                    
-    <strong>setCredentials</strong>(string $merchantID, string $publicKey, string $privateKey, string $ipnSecret)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>string</td>
-                <td>$merchantID</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td>string</td>
-                <td>$publicKey</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td>string</td>
-                <td>$privateKey</td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td>string</td>
-                <td>$ipnSecret</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_getRequestAgent">
-        <div class="location">at         line 97</div>
-        <code>                    mixed
-    <strong>getRequestAgent</strong>()
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                <div class="tags">
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td>mixed</td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_setRequestAgent">
-        <div class="location">at         line 109</div>
-        <code>                    
-    <strong>setRequestAgent</strong>(mixed $requestAgent)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>mixed</td>
-                <td>$requestAgent</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
                     <h3 id="method_getBasicInfo">
-        <div class="location">at         line 120</div>
+        <div class="location">at         <a href="https://github.com/sigismund/coinpayments/blob/master/src/CoinPayments.php#L79">line 79</a></div>
         <code>                    <a href="../../Sigismund/CoinPayments/ApiCall.html"><abbr title="Sigismund\CoinPayments\ApiCall">ApiCall</abbr></a>
     <strong>getBasicInfo</strong>()
         </code>
@@ -648,7 +530,7 @@ in your wallet. There is no fee for these deposits but they don't send IPNs.</p>
             </div>
                     <div class="method-item">
                     <h3 id="method_getDepositAddress">
-        <div class="location">at         line 135</div>
+        <div class="location">at         <a href="https://github.com/sigismund/coinpayments/blob/master/src/CoinPayments.php#L94">line 94</a></div>
         <code>                    <a href="../../Sigismund/CoinPayments/ApiCall.html"><abbr title="Sigismund\CoinPayments\ApiCall">ApiCall</abbr></a>
     <strong>getDepositAddress</strong>(string $currency)
         </code>
@@ -698,7 +580,7 @@ in your wallet. There is no fee for these deposits but they don't send IPNs.</p>
             </div>
                     <div class="method-item">
                     <h3 id="method_getBalances">
-        <div class="location">at         line 148</div>
+        <div class="location">at         <a href="https://github.com/sigismund/coinpayments/blob/master/src/CoinPayments.php#L107">line 107</a></div>
         <code>                    <a href="../../Sigismund/CoinPayments/ApiCall.html"><abbr title="Sigismund\CoinPayments\ApiCall">ApiCall</abbr></a>
     <strong>getBalances</strong>(bool $all = false)
         </code>
@@ -747,7 +629,7 @@ in your wallet. There is no fee for these deposits but they don't send IPNs.</p>
             </div>
                     <div class="method-item">
                     <h3 id="method_createTransaction">
-        <div class="location">at         line 164</div>
+        <div class="location">at         <a href="https://github.com/sigismund/coinpayments/blob/master/src/CoinPayments.php#L123">line 123</a></div>
         <code>                    <a href="../../Sigismund/CoinPayments/ApiCall.html"><abbr title="Sigismund\CoinPayments\ApiCall">ApiCall</abbr></a>
     <strong>createTransaction</strong>(float $amount, string $currencyIn, string $currencyOut, array $additional = [])
         </code>
@@ -810,65 +692,8 @@ in your wallet. There is no fee for these deposits but they don't send IPNs.</p>
 
             </div>
                     <div class="method-item">
-                    <h3 id="method_getIpnUrl">
-        <div class="location">at         line 192</div>
-        <code>                    mixed
-    <strong>getIpnUrl</strong>()
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                <div class="tags">
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td>mixed</td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_setIpnUrl">
-        <div class="location">at         line 200</div>
-        <code>                    
-    <strong>setIpnUrl</strong>(mixed $ipnUrl)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>mixed</td>
-                <td>$ipnUrl</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
                     <h3 id="method_getTransactionInfo">
-        <div class="location">at         line 214</div>
+        <div class="location">at         <a href="https://github.com/sigismund/coinpayments/blob/master/src/CoinPayments.php#L157">line 157</a></div>
         <code>                    <a href="../../Sigismund/CoinPayments/ApiCall.html"><abbr title="Sigismund\CoinPayments\ApiCall">ApiCall</abbr></a>
     <strong>getTransactionInfo</strong>(string $txID, bool $all = true)
         </code>
@@ -922,7 +747,7 @@ in your wallet. There is no fee for these deposits but they don't send IPNs.</p>
             </div>
                     <div class="method-item">
                     <h3 id="method_getTransactionsList">
-        <div class="location">at         line 233</div>
+        <div class="location">at         <a href="https://github.com/sigismund/coinpayments/blob/master/src/CoinPayments.php#L176">line 176</a></div>
         <code>                    <a href="../../Sigismund/CoinPayments/ApiCall.html"><abbr title="Sigismund\CoinPayments\ApiCall">ApiCall</abbr></a>
     <strong>getTransactionsList</strong>(int|null $limit = null, int|null $start = null, int|null $newer = null, bool|null $all = null)
         </code>
@@ -984,7 +809,7 @@ in your wallet. There is no fee for these deposits but they don't send IPNs.</p>
             </div>
                     <div class="method-item">
                     <h3 id="method_getCallbackAddress">
-        <div class="location">at         line 253</div>
+        <div class="location">at         <a href="https://github.com/sigismund/coinpayments/blob/master/src/CoinPayments.php#L196">line 196</a></div>
         <code>                    <a href="../../Sigismund/CoinPayments/ApiCall.html"><abbr title="Sigismund\CoinPayments\ApiCall">ApiCall</abbr></a>
     <strong>getCallbackAddress</strong>(float $currency)
         </code>
@@ -1033,7 +858,7 @@ in your wallet. There is no fee for these deposits but they don't send IPNs.</p>
             </div>
                     <div class="method-item">
                     <h3 id="method_createWithdrawal">
-        <div class="location">at         line 274</div>
+        <div class="location">at         <a href="https://github.com/sigismund/coinpayments/blob/master/src/CoinPayments.php#L217">line 217</a></div>
         <code>                    <a href="../../Sigismund/CoinPayments/ApiCall.html"><abbr title="Sigismund\CoinPayments\ApiCall">ApiCall</abbr></a>
     <strong>createWithdrawal</strong>(float $amount, string $currency, string $address, bool $autoConfirm = false)
         </code>
@@ -1097,7 +922,7 @@ in your wallet. There is no fee for these deposits but they don't send IPNs.</p>
             </div>
                     <div class="method-item">
                     <h3 id="method_sendToPayByName">
-        <div class="location">at         line 298</div>
+        <div class="location">at         <a href="https://github.com/sigismund/coinpayments/blob/master/src/CoinPayments.php#L241">line 241</a></div>
         <code>                    <a href="../../Sigismund/CoinPayments/ApiCall.html"><abbr title="Sigismund\CoinPayments\ApiCall">ApiCall</abbr></a>
     <strong>sendToPayByName</strong>(float $amount, string $currency, string $pbnTag, bool $autoConfirm = false)
         </code>
@@ -1161,7 +986,7 @@ in your wallet. There is no fee for these deposits but they don't send IPNs.</p>
             </div>
                     <div class="method-item">
                     <h3 id="method_createTransfer">
-        <div class="location">at         line 321</div>
+        <div class="location">at         <a href="https://github.com/sigismund/coinpayments/blob/master/src/CoinPayments.php#L264">line 264</a></div>
         <code>                    <a href="../../Sigismund/CoinPayments/ApiCall.html"><abbr title="Sigismund\CoinPayments\ApiCall">ApiCall</abbr></a>
     <strong>createTransfer</strong>(float $amount, string $currency, string $merchant, bool $autoConfirm = false)
         </code>
@@ -1218,6 +1043,247 @@ in your wallet. There is no fee for these deposits but they don't send IPNs.</p>
             </tr>
             </table>
 
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_queryAPI">
+        <div class="location">at         <a href="https://github.com/sigismund/coinpayments/blob/master/src/CoinPayments.php#L286">line 286</a></div>
+        <code>                    <a href="../../Sigismund/CoinPayments/ApiCall.html"><abbr title="Sigismund\CoinPayments\ApiCall">ApiCall</abbr></a>
+    <strong>queryAPI</strong>(string $command, array $parameters)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Makes a query to API
+Not recommended</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$command</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$parameters</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Sigismund/CoinPayments/ApiCall.html"><abbr title="Sigismund\CoinPayments\ApiCall">ApiCall</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../Sigismund/CoinPayments/Exceptions/RequestException.html"><abbr title="Sigismund\CoinPayments\Exceptions\RequestException">RequestException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getCredentials">
+        <div class="location">at         <a href="https://github.com/sigismund/coinpayments/blob/master/src/CoinPayments.php#L294">line 294</a></div>
+        <code>                    <a href="../../Sigismund/CoinPayments/Credentials.html"><abbr title="Sigismund\CoinPayments\Credentials">Credentials</abbr></a>
+    <strong>getCredentials</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Sigismund/CoinPayments/Credentials.html"><abbr title="Sigismund\CoinPayments\Credentials">Credentials</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getIpnUrl">
+        <div class="location">at         <a href="https://github.com/sigismund/coinpayments/blob/master/src/CoinPayments.php#L302">line 302</a></div>
+        <code>                    mixed
+    <strong>getIpnUrl</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setIpnUrl">
+        <div class="location">at         <a href="https://github.com/sigismund/coinpayments/blob/master/src/CoinPayments.php#L310">line 310</a></div>
+        <code>                    
+    <strong>setIpnUrl</strong>(mixed $ipnUrl)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>mixed</td>
+                <td>$ipnUrl</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setCredentials">
+        <div class="location">at         <a href="https://github.com/sigismund/coinpayments/blob/master/src/CoinPayments.php#L321">line 321</a></div>
+        <code>                    
+    <strong>setCredentials</strong>(string $merchantID, string $publicKey, string $privateKey, string $ipnSecret)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$merchantID</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$publicKey</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$privateKey</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$ipnSecret</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getRequestAgent">
+        <div class="location">at         <a href="https://github.com/sigismund/coinpayments/blob/master/src/CoinPayments.php#L329">line 329</a></div>
+        <code>                    mixed
+    <strong>getRequestAgent</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setRequestAgent">
+        <div class="location">at         <a href="https://github.com/sigismund/coinpayments/blob/master/src/CoinPayments.php#L341">line 341</a></div>
+        <code>                    
+    <strong>setRequestAgent</strong>(mixed $requestAgent)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>mixed</td>
+                <td>$requestAgent</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
             
                     </div>
     </div>

@@ -79,7 +79,7 @@
     </div>
 
     <p>    class
-    <strong>IpnValidation</strong>
+    <strong>IpnValidation</strong>        (<a href="https://github.com/sigismund/coinpayments/blob/master/src/IpnValidation.php">View source</a>)
 </p>
 
         
@@ -139,8 +139,8 @@
                 <div class="col-md-8 type">
                     <a href="#method_checkRequiredData">checkRequiredData</a>()
         
-                                            <p class="no-description">No description</p>
-                                    </div>
+                                            <p>Checks $_POST data for required statuses
+https://www.coinpayments.net/merchant-tools-ipn</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -185,6 +185,39 @@
                                     </div>
                 <div class="col-md-2"></div>
             </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_setPostData">setPostData</a>(array $postData)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_setServerData">setServerData</a>(array $serverData)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_setCredentials">setCredentials</a>(<a href="../../Sigismund/CoinPayments/Credentials.html"><abbr title="Sigismund\CoinPayments\Credentials">Credentials</abbr></a> $credentials)
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
             </div>
 
 
@@ -193,7 +226,7 @@
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at         line 14</div>
+        <div class="location">at         <a href="https://github.com/sigismund/coinpayments/blob/master/src/IpnValidation.php#L14">line 14</a></div>
         <code>                    
     <strong>__construct</strong>(array $postData, array $serverData, <a href="../../Sigismund/CoinPayments/Credentials.html"><abbr title="Sigismund\CoinPayments\Credentials">Credentials</abbr></a> $credentials)
         </code>
@@ -232,7 +265,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_checkRequiredData">
-        <div class="location">at         line 24</div>
+        <div class="location">at         <a href="https://github.com/sigismund/coinpayments/blob/master/src/IpnValidation.php#L27">line 27</a></div>
         <code>                    
     <strong>checkRequiredData</strong>()
         </code>
@@ -241,6 +274,9 @@
             
     
 
+                    <div class="method-description">
+                                    <p>Checks $_POST data for required statuses
+https://www.coinpayments.net/merchant-tools-ipn</p>                                                </div>
                 <div class="tags">
             
             
@@ -260,7 +296,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_checkOrderSuccess">
-        <div class="location">at         line 41</div>
+        <div class="location">at         <a href="https://github.com/sigismund/coinpayments/blob/master/src/IpnValidation.php#L44">line 44</a></div>
         <code>                    bool
     <strong>checkOrderSuccess</strong>()
         </code>
@@ -299,7 +335,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_validate">
-        <div class="location">at         line 58</div>
+        <div class="location">at         <a href="https://github.com/sigismund/coinpayments/blob/master/src/IpnValidation.php#L61">line 61</a></div>
         <code>                    bool
     <strong>validate</strong>()
         </code>
@@ -338,7 +374,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getPostData">
-        <div class="location">at         line 90</div>
+        <div class="location">at         <a href="https://github.com/sigismund/coinpayments/blob/master/src/IpnValidation.php#L93">line 93</a></div>
         <code>                    array|mixed|null
     <strong>getPostData</strong>(null $key = null)
         </code>
@@ -376,7 +412,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getServerData">
-        <div class="location">at         line 103</div>
+        <div class="location">at         <a href="https://github.com/sigismund/coinpayments/blob/master/src/IpnValidation.php#L106">line 106</a></div>
         <code>                    array|mixed|null
     <strong>getServerData</strong>(null $key = null)
         </code>
@@ -406,6 +442,93 @@
         </tr>
     </table>
 
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setPostData">
+        <div class="location">at         <a href="https://github.com/sigismund/coinpayments/blob/master/src/IpnValidation.php#L117">line 117</a></div>
+        <code>                    
+    <strong>setPostData</strong>(array $postData)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>array</td>
+                <td>$postData</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setServerData">
+        <div class="location">at         <a href="https://github.com/sigismund/coinpayments/blob/master/src/IpnValidation.php#L125">line 125</a></div>
+        <code>                    
+    <strong>setServerData</strong>(array $serverData)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>array</td>
+                <td>$serverData</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setCredentials">
+        <div class="location">at         <a href="https://github.com/sigismund/coinpayments/blob/master/src/IpnValidation.php#L133">line 133</a></div>
+        <code>                    
+    <strong>setCredentials</strong>(<a href="../../Sigismund/CoinPayments/Credentials.html"><abbr title="Sigismund\CoinPayments\Credentials">Credentials</abbr></a> $credentials)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../Sigismund/CoinPayments/Credentials.html"><abbr title="Sigismund\CoinPayments\Credentials">Credentials</abbr></a></td>
+                <td>$credentials</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
             
             
                     </div>

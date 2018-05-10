@@ -4,7 +4,6 @@ namespace Sigismund\CoinPayments;
 
 
 use Sigismund\CoinPayments\Agents\Curl;
-use Sigismund\CoinPayments\Exceptions\ValidationException;
 
 class CoinPayments
 {
@@ -41,21 +40,6 @@ class CoinPayments
         $this->setCredentials($merchantID, $publicKey, $privateKey, $ipnSecret);
     }
 
-
-    /**
-     * Get current exchange rates
-     *
-     * @param bool $short The output won't include the currency names and confirms needed to save bandwidth.
-     * @param bool $accepted The response will include coin acceptance on your Coin Acceptance Settings page.
-     *
-     * @return \Sigismund\CoinPayments\ApiCall
-     * @throws \Sigismund\CoinPayments\Exceptions\RequestException
-     */
-    public function getRates(bool $short = true, bool $accepted = true)
-    {
-        return $this->apiCall(Commands::RATES, ['short' => (int)$short, 'accepted' => (int)$accepted]);
-    }
-
     /**
      * @param string $command
      * @param array $parameters
@@ -73,42 +57,17 @@ class CoinPayments
     }
 
     /**
-     * @return \Sigismund\CoinPayments\Credentials
+     * Get current exchange rates
+     *
+     * @param bool $short The output won't include the currency names and confirms needed to save bandwidth.
+     * @param bool $accepted The response will include coin acceptance on your Coin Acceptance Settings page.
+     *
+     * @return \Sigismund\CoinPayments\ApiCall
+     * @throws \Sigismund\CoinPayments\Exceptions\RequestException
      */
-    public function getCredentials()
+    public function getRates(bool $short = true, bool $accepted = true)
     {
-        return $this->credentials;
-    }
-
-    /**
-     * @param string $merchantID
-     * @param string $publicKey
-     * @param string $privateKey
-     * @param string $ipnSecret
-     */
-    public function setCredentials($merchantID, $publicKey, $privateKey, $ipnSecret): void
-    {
-        $this->credentials = new Credentials($merchantID, $publicKey, $privateKey, $ipnSecret);
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getRequestAgent()
-    {
-        if (!$this->requestAgent) {
-            $this->setRequestAgent(Curl::class);
-        }
-
-        return $this->requestAgent;
-    }
-
-    /**
-     * @param mixed $requestAgent
-     */
-    public function setRequestAgent($requestAgent): void
-    {
-        $this->requestAgent = $requestAgent;
+        return $this->apiCall(Commands::RATES, ['short' => (int)$short, 'accepted' => (int)$accepted]);
     }
 
     /**
@@ -184,22 +143,6 @@ class CoinPayments
         }
 
         return $this->apiCall(Commands::CREATE_TRANSACTION, $parameters);
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getIpnUrl()
-    {
-        return $this->ipnUrl;
-    }
-
-    /**
-     * @param mixed $ipnUrl
-     */
-    public function setIpnUrl($ipnUrl): void
-    {
-        $this->ipnUrl = $ipnUrl;
     }
 
     /**
@@ -328,5 +271,75 @@ class CoinPayments
         ];
 
         return $this->apiCall(Commands::CREATE_TRANSFER, $parameters);
+    }
+
+    /**
+     * Makes a query to API
+     * Not recommended
+     *
+     * @param string $command
+     * @param array $parameters
+     *
+     * @return \Sigismund\CoinPayments\ApiCall
+     * @throws \Sigismund\CoinPayments\Exceptions\RequestException
+     */
+    public function queryAPI(string $command, array $parameters)
+    {
+        return $this->apiCall($command, $parameters);
+    }
+
+    /**
+     * @return \Sigismund\CoinPayments\Credentials
+     */
+    public function getCredentials()
+    {
+        return $this->credentials;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIpnUrl()
+    {
+        return $this->ipnUrl;
+    }
+
+    /**
+     * @param mixed $ipnUrl
+     */
+    public function setIpnUrl($ipnUrl): void
+    {
+        $this->ipnUrl = $ipnUrl;
+    }
+
+    /**
+     * @param string $merchantID
+     * @param string $publicKey
+     * @param string $privateKey
+     * @param string $ipnSecret
+     */
+    public function setCredentials($merchantID, $publicKey, $privateKey, $ipnSecret): void
+    {
+        $this->credentials = new Credentials($merchantID, $publicKey, $privateKey, $ipnSecret);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRequestAgent()
+    {
+        if (!$this->requestAgent) {
+            $this->setRequestAgent(Curl::class);
+        }
+
+        return $this->requestAgent;
+    }
+
+    /**
+     * @param mixed $requestAgent
+     */
+    public function setRequestAgent($requestAgent): void
+    {
+        $this->requestAgent = $requestAgent;
     }
 }
