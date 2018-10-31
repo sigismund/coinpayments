@@ -188,12 +188,12 @@ class CoinPayments
     /**
      * Creates an address for receiving payments into your CoinPayments Wallet.
      *
-     * @param float $currency The cryptocurrency to create a receiving address for.
+     * @param string $currency The cryptocurrency to create a receiving address for.
      *
      * @return \Sigismund\CoinPayments\ApiCall
      * @throws \Sigismund\CoinPayments\Exceptions\RequestException
      */
-    public function getCallbackAddress(float $currency)
+    public function getCallbackAddress(string $currency)
     {
         $parameters = [
             'currency' => $currency,
