@@ -329,7 +329,7 @@ class CoinPayments
     public function getRequestAgent()
     {
         if (!$this->requestAgent) {
-            $this->setRequestAgent(Curl::class);
+            $this->setRequestAgent(new Curl);
         }
 
         return $this->requestAgent;
