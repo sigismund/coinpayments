@@ -2,6 +2,7 @@
 
 namespace Sigismund\CoinPayments\Agents;
 
+use Sigismund\CoinPayments\Exceptions\JsonException;
 use Sigismund\CoinPayments\Exceptions\RequestException;
 
 abstract class RequestAgent
